@@ -50,7 +50,7 @@ JobPoint is a modern, autonomous AI agent designed to help users prepare their j
 
 Launch the Streamlit application:
 ```bash
-streamlit run goal_based_agent_v1.py
+streamlit run app.py
 ```
 
 ## 💡 How It Works
