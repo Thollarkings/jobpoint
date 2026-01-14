@@ -56,6 +56,12 @@ def get_system_prompt():
     status = f"Status: {info}. Missing: {missing}."
     return f"""You are a helpful job assistant. Collect name, email, and skills.
 {status}
+
+**Rules for Ambiguity:**
+- If you find multiple potential values for a field (e.g., two different emails in a CV), DO NOT guess.
+- Instead, point them out to the user and ask: "I found multiple emails: [Email A] and [Email B]. Which one should I use?"
+- Only call extract_application_info once the user confirms or if the value is unambiguous.
+
 Use extract_application_info to save data. Once all 3 fields are present, congratulate the user!
 """
 

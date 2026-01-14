@@ -12,7 +12,21 @@ JobPoint is a modern, autonomous AI agent designed to help users prepare their j
 - **Safe State Sync**: Custom synchronization layer to ensure thread-safe interactions between the AI agent and the Streamlit UI.
 - **Result Download**: Once the goal is met, download a structured summary of your application data.
 
-## 🛠️ Tech Stack
+## � Agent Workflow
+
+```mermaid
+graph TD
+    A[User Input: Text or PDF] --> B{Agent Reasoning}
+    B -->|Ambiguity Found| C[Ask User for Clarification]
+    B -->|Clear Info Found| D[Call extract_application_info]
+    D --> E[Sync State to UI]
+    C --> A
+    E --> F{Goal Met?}
+    F -->|No| B
+    F -->|Yes| G[Complete & Enable Download]
+```
+
+## �🛠️ Tech Stack
 
 - **Brain**: [Google Gemini 2.0 Flash](https://ai.google.dev/)
 - **Orchestration**: [LangGraph](https://langchain-ai.github.io/langgraph/)
